@@ -20,10 +20,11 @@ This license governs use of the accompanying software. If you use the software, 
     purpose of confirming the software has no malicious intent.
 
 1.5. "No Malicious Intent" 
-    means that any secure and sesnitive data transmitted by this software, 
-    including but not limited to username, email address, or passwords are 
-    used solely for verification via the appropriate channels, i.e. Mojangs 
-    authentication api, and are not transmitted or sent outside the software.
+    within the scope of this license means that any secure and sesnitive 
+    data transmitted by this software, including but not limited to username, 
+    email address, or passwords are used solely for verification via the 
+    appropriate channels, i.e. Mojangs authentication api, and are not 
+    transmitted or sent outside or beyond the scope of the software.
 
 1.6. "Licensed patents" 
     means any Licensor patent claims which read directly on the software as 
