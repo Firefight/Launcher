@@ -1,0 +1,49 @@
+{
+	"application": {
+		"id": 598341031544750101,
+		"manifests": [
+			{
+				"label": "firefight_launcher/windows",
+				"platforms": ["win64"],
+				"locales": [],
+				"local_root": "./",
+				"file_rules": {
+					"mappings": [
+						{
+							"local_path": ".",
+							"install_path": "."
+						}
+					]
+				},
+				"storage": {
+					"sync": true,
+					"roots": [
+						{
+						"id": "firefight_launcher_data",
+						"paths": [
+							{
+								"platform": "windows",
+								"path": "${DOCUMENTS}/Aeternum/Firefight_Launcher/Saves"
+							},
+							{
+								"platform": "macos",
+								"path": "${DOCUMENTS}/Aeternum/Firefight_Launcher/Saves"
+							}
+						],
+						"patterns": ["**/*"]
+						}
+					]
+				},
+				"launch_options": [
+					{
+						"name": "Firefight Launcher",
+						"executable": "firefight-launcher.exe",
+						"arguments": [],
+						"platforms": ["win64"],
+						"working_dir": "./"
+					}
+				]
+			}
+		]
+	}
+}

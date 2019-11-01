@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="25.4mm"
+   height="25.4mm"
+   viewBox="0 0 25.4 25.4"
+   version="1.1"
+   id="svg855"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   sodipodi:docname="news.svg">
+  <defs
+     id="defs849" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="3.959798"
+     inkscape:cx="92.754511"
+     inkscape:cy="43.64752"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1027"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata852">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-90.535852,-142.06904)">
+    <g
+       style="fill:#000000"
+       id="g1428"
+       transform="matrix(0.26458333,0,0,0.26458333,90.535852,142.06904)">
+      <g
+         id="surface36213">
+        <path
+           id="path1415"
+           d="m 0,0 v 80 c 0,8.796875 7.203125,16 16,16 h 64 c 8.796875,0 16,-7.203125 16,-16 V 16 H 72 V 0 Z m 8,8 h 56 v 72 c 0,2.96875 1.0625,5.609375 2.5,8 H 16 C 11.53125,88 8,84.46875 8,80 Z m 8,8 V 28 H 56 V 16 Z m 56,8 h 16 v 56 c 0,4.46875 -3.53125,8 -8,8 -4.46875,0 -8,-3.53125 -8,-8 v -4 h 8 v -8 h -8 v -4 h 8 v -8 h -8 v -4 h 8 v -8 h -8 v -4 h 8 V 32 H 72 Z M 16,36 v 8 h 16 v -8 z m 24,0 v 8 H 56 V 36 Z M 16,48 v 8 h 16 v -8 z m 24,0 v 8 H 56 V 48 Z M 16,60 v 8 h 16 v -8 z m 24,0 v 8 H 56 V 60 Z M 16,72 v 8 h 16 v -8 z m 24,0 v 8 h 16 v -8 z m 0,0"
+           style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           inkscape:connector-curvature="0" />
+      </g>
+    </g>
+  </g>
+</svg>

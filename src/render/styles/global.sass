@@ -1,0 +1,112 @@
+@import 'colors'
+	
+*
+	margin: 0
+	padding: 0
+	font-family: 'Open Sans', sans-serif
+	overflow: hidden
+	letter-spacing: 0.5px
+
+::-webkit-scrollbar 
+	width: 8px
+ 
+::-webkit-scrollbar-track
+	background-color: transparent
+ 
+::-webkit-scrollbar-thumb
+	background-color: var(--accent)
+
+button, input, textarea
+	border: 2px solid transparent
+	background-color: rgba(90,90,90,0.1)
+	outline: none
+	box-sizing: border-box
+
+input, textarea
+	&:focus
+		border: 2px solid var(--accent)
+
+::-webkit-input-placeholder
+	color: var(--accent)
+	opacity: 0.2
+
+button
+	background-color: var(--accent)
+	font-weight: 700
+	font-size: 1.8rem
+	padding: 0.7rem 1rem
+	cursor: pointer
+	color: var(--background)
+	position: relative
+	border: none
+	display: flex
+	clip-path: polygon(0 0, calc(100% - 0.5rem - 4px) 0, 100% calc(0.5rem + 4px), 100% 100%, calc(0.5rem + 4px) 100%, 0 calc(100% - 0.5rem - 4px))
+
+	svg
+		height: 100%
+		path
+			fill: var(--background) !important
+
+	.slide
+		position: absolute
+		top: 0
+		left: 0
+		height: 100%
+		width: 100%
+		display: flex
+		justify-content: center
+		align-items: center
+		background-color: var(--background)
+		pointer-events: none
+		clip-path: inset(-1px 100% -1px -1px)
+		transition: clip-path 0.3s
+		color: var(--accent)
+		cursor: pointer
+		transform: translateZ(0)
+		
+
+		svg path
+			fill: var(--accent) !important
+
+	&:hover > .slide
+		clip-path: inset(-1px)
+
+.right .slide
+	clip-path: inset(-1px -1px -1px 100%)
+
+
+a
+	color: var(--accent)
+	text-decoration: none
+	cursor: pointer
+
+	&:hover
+		text-decoration: underline
+
+html
+	background-image: url(~/assets/background.png)
+
+body
+	color: var(--text)
+	background-color: var(--background)
+	background: rgba(20,20,20,0.2)
+
+.drag
+	-webkit-app-region: drag
+
+.nodrag
+	-webkit-app-region: no-drag !important
+
+hr
+	outline: none
+	border: none
+	height: 2px
+	width: 100%
+	margin: 0.7rem 0
+	background-color: var(--accent)
+
+.disabled
+	opacity: 0.7
+	pointer-events: none
+	user-select: none
+	filter: saturate(50%)

@@ -1,0 +1,26 @@
+{
+	"name": "firefight-launcher",
+	"version": "1.0.1",
+	"main": "./index.js",
+	"homepage": "https://github.com/AeternumIndustries/firefight-releases",
+	"license": "UNLICENSED",
+	"author": {
+		"name": "Aeternum Industries",
+		"email": "andrewarivers@gmail.com"
+	},
+	"dependencies": {
+		"axios": "^0.19.0",
+		"highlight.js": "^9.15.9",
+		"markdown-it": "^9.0.1",
+		"vue": "^2.6.10",
+		"vue-color": "^2.7.0",
+		"vuex": "^3.1.1"
+	},
+
+	"win": {
+		"icon": "./icon.png",
+		"target": [
+			"zip"
+		]
+	}
+}
