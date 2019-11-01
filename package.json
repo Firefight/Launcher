@@ -7,7 +7,7 @@
 		"type": "git",
 		"url": "https://github.com/AeternumIndustries/firefight-releases"
 	},
-	"license": "UNLICENSED",
+	"license": "LicenseRef-LICENSE",
 	"author": {
 		"name": "Aeternum Industries",
 		"email": "andrewarivers@gmail.com"
