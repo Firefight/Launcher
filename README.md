@@ -1,2 +1,0 @@
-# Launcher
-Firefights Electron Launcher
