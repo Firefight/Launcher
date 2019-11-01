@@ -14,9 +14,3 @@ Firefights Electron Launcher
 
 Run `dev` and then `start` in a separate terminal. 
 In the future, Electron will start programmatically in development.
-
-
-## dist
-
-Distribution is a mess right now. This is because of the way Parcel, and electron-builder's lacking configuration.
-This is also going to be fixed.
