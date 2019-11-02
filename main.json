@@ -23,7 +23,7 @@
             "hint": "repository"
         },
         {
-            "download": "https://github.com/Firefight/Launcher/blob/pack/servers.dat",
+            "download": "https://github.com/Firefight/Launcher/raw/pack/servers.dat",
             "location": "/",
             "name": "servers",
             "type": "dat"
@@ -32,7 +32,7 @@
     "identity": {
         "name": "Firefight",
         "description": "Firefig.ht's LaunchKit pack",
-        "version": "2"
+        "version": "3"
     },
     "profiles": [
         {
