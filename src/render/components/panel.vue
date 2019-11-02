@@ -12,7 +12,7 @@
 			span
 
 		div(class="top")
-			h4 Alpha
+			h4 {{ percentage > 0 && percentage < 100 ? `${percentage}%` : 'Alpha' }}
 				
 			button( 
 				v-if="!play_disabled" 
@@ -51,6 +51,7 @@
 				play_disabled: false,
                 in_game: false,
                 discord_game_interval: null,
+                percentage: 0
 			}
 		},
 
@@ -87,7 +88,7 @@
                     '-jar', 
                     path.join(
                         require('electron').remote.app.getAppPath().replace('app.asar','').replace('resources', 'unpacked'), 
-                        'LaunchKit-1.3.jar'
+                        'LaunchKit-1.4.jar'
                     )
                 ])
 
@@ -102,13 +103,16 @@
 					
 					if (data.includes("@ppm:")) switch ( true ) {
 						case data.includes('ready'):
-							const { accessToken, selectedProfile, user } = this.$store.state.auth
+                            const { accessToken, selectedProfile, user } = this.$store.state.auth
+                            launchkit.stdin.write(`/lk set pack https://raw.githubusercontent.com/Firefight/Launcher/pack/main.json\n`)
 							launchkit.stdin.write(`/mc auth ${user.username} mojang ${selectedProfile.id} ${accessToken}\n`)
 							launchkit.stdin.write("/mc start\n")
 							break
 
 						case data.includes('progress'):
-                            const progress = parseFloat(data.replace(/^.+\=/, '')) * 100
+                            const progress = Math.round(parseFloat(data.replace(/^.+\=/, ''))*10000) / 100
+
+                            Vue.set(this, 'percentage', progress)
 
                             if (progress > 1) {
                                 if (barEnabled) {
