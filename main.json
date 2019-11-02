@@ -21,6 +21,12 @@
             "location": "config",
             "type": "zip",
             "hint": "repository"
+        },
+        {
+            "download": "https://github.com/Firefight/Launcher/blob/pack/servers.dat",
+            "location": "/",
+            "name": "servers",
+            "type": "dat"
         }
     ],
     "identity": {
