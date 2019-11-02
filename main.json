@@ -1,0 +1,86 @@
+{
+    "game": {
+        "forgeVersion": "14.23.5.2838",
+        "minecraftVersion": "1.12.2"
+    },
+    "install": [
+        {
+            "download": "https://github.com/Firefight/Launcher-Mods/archive/master.zip",
+            "location": "mods",
+            "type": "zip",
+            "hint": "repository"
+        },
+        {
+            "download": "https://github.com/Firefight/Launcher-Resourcepacks/raw/master/Ordnance-Alpha.zip",
+            "location": "resourcepacks",
+            "type": "zip",
+            "hint": "resourcepack"
+        },
+        {
+            "download": "https://github.com/Firefight/Launcher-Configs/archive/master.zip",
+            "location": "config",
+            "type": "zip",
+            "hint": "repository"
+        }
+    ],
+    "identity": {
+        "name": "Firefight",
+        "description": "Firefig.ht's LaunchKit pack",
+        "version": "1"
+    },
+    "profiles": [
+        {
+            "name": "ultra",
+            "launchArgs": [
+                "-Xmx4g",
+                "-Xms1g",
+                "-XX:+UseG1GC",
+                "-XX:+UnlockExperimentalVMOptions",
+                "-XX:MaxGCPauseMillis=12",
+                "-XX:+DisableExplicitGC",
+                "-XX:+ParallelRefProcEnabled",
+                "-XX:ParallelGCThreads=16",
+                "-XX:ConcGCThreads=6",
+                "-XX:G1HeapWastePercent=15"
+            ],
+            "activation": [
+                "free_system_memory >= 8000",
+                "cpu_threads >= 8"
+            ]
+        },
+        {
+            "name": "default",
+            "launchArgs": [
+                "-Xmx2g",
+                "-Xms500m",
+                "-XX:+UseG1GC",
+                "-XX:+UnlockExperimentalVMOptions",
+                "-XX:MaxGCPauseMillis=14",
+                "-XX:+DisableExplicitGC",
+                "-XX:+ParallelRefProcEnabled",
+                "-XX:ParallelGCThreads=8",
+                "-XX:ConcGCThreads=5",
+                "-XX:G1HeapWastePercent=15"
+            ],
+            "activation": [
+                "free_system_memory >= 4000",
+                "cpu_threads >= 4"
+            ]
+        },
+        {
+            "name": "potato",
+            "launchArgs": [
+                "-Xmx1g",
+                "-Xms1m",
+                "-XX:+UseG1GC",
+                "-XX:+UnlockExperimentalVMOptions",
+                "-XX:MaxGCPauseMillis=16",
+                "-XX:+DisableExplicitGC",
+                "-XX:+ParallelRefProcEnabled",
+                "-XX:ParallelGCThreads=6",
+                "-XX:ConcGCThreads=4",
+                "-XX:G1HeapWastePercent=13"
+            ]
+        }
+    ]
+}
