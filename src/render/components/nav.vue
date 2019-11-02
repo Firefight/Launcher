@@ -35,7 +35,7 @@
 		div.nav-wrapper.right
 			div.nav.nodrag
 				button.discord(
-					@click="shell.openExternal('https://discord.firefig.ht')"
+					@click="shell.openExternal('https://discord.me/firefight')"
 					@mouseover="setTooltip('Discord', true)"
 					@mouseout="setTooltip('Discord', false)"
 				)

@@ -12,7 +12,8 @@ function createWindow () {
 		maximizable: false,
 		webPreferences: {
 			nodeIntegration: true,
-			nativeWindowOpen: true
+			nativeWindowOpen: true,
+            devTools: process.env.NODE_ENV === 'development'
 		}
 	})
 

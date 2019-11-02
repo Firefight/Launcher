@@ -26,8 +26,12 @@
 					include ../svg/crosshair.svg
 					p Play
 
-			button.kill( v-else @click="kill" ) Kill
-				.slide Kill
+			button.kill( v-else @click="kill" ) 
+				include ../svg/crosshair.svg
+				| Kill
+				.slide
+					include ../svg/crosshair.svg
+					p Kill
 
 		div(class="bottom")
 			div(v-for="i in status", class="status")
@@ -49,9 +53,9 @@
 				expanded: false,
 				launchkit: { },
 				play_disabled: false,
-                in_game: false,
-                discord_game_interval: null,
-                percentage: 0
+				in_game: false,
+				discord_game_interval: null,
+				percentage: 0
 			}
 		},
 
@@ -61,11 +65,12 @@
 
 		methods: {
 			kill () {
-                // clearInterval(this.discord_game_interval)
-                Vue.set(this, 'discord_game_interval', null)
+				// clearInterval(this.discord_game_interval)
+				Vue.set(this, 'discord_game_interval', null)
 				this.launchkit.stdin.write('/mc stop\n')
-				this.launchkit.stdin.write('/lk stop\n')
-                Vue.set(this, 'play_disabled', false)
+				// this.launchkit.stdin.write('/lk stop\n')
+				Vue.set(this, 'play_disabled', false)
+				console.log('killed')
 
 				disableBar()
 			},
@@ -80,48 +85,52 @@
 
 				Vue.set(this, 'play_disabled', true)
 
-                enableBar() 
+				enableBar() 
 
 				const { spawn } = require('child_process')
 
-                const launchkit = spawn('java', [
-                    '-jar', 
-                    path.join(
-                        require('electron').remote.app.getAppPath().replace('app.asar','').replace('resources', 'unpacked'), 
-                        'LaunchKit-1.4.jar'
-                    )
-                ])
+				const launchkit = spawn('java', [
+					'-jar', 
+					path.join(
+						require('electron').remote.app.getAppPath().replace('app.asar','').replace('resources', 'unpacked'), 
+						'LaunchKit-1.5.jar'
+					)
+				])
 
-                let barEnabled = true
+				let barEnabled = true
 
 				launchkit.stdin.setEncoding('utf8')
 
 				launchkit.stdout.on('data', rawData => {
 					const data = rawData.toString('utf8')
 
-					console.log(data)
+					// console.log(data)
 					
 					if (data.includes("@ppm:")) switch ( true ) {
 						case data.includes('ready'):
-                            const { accessToken, selectedProfile, user } = this.$store.state.auth
-                            launchkit.stdin.write(`/lk set pack https://raw.githubusercontent.com/Firefight/Launcher/pack/main.json\n`)
+							const { accessToken, selectedProfile, user } = this.$store.state.auth
+							launchkit.stdin.write(`/lk set pack https://raw.githubusercontent.com/Firefight/Launcher/pack/main.json\n`)
 							launchkit.stdin.write(`/mc auth ${user.username} mojang ${selectedProfile.id} ${accessToken}\n`)
 							launchkit.stdin.write("/mc start\n")
 							break
+							
+						// case data.includes('validated'):
+						// 	launchkit.stdin.write("/mc start\n")
+						//     break
 
 						case data.includes('progress'):
-                            const progress = Math.round(parseFloat(data.replace(/^.+\=/, ''))*10000) / 100
+							const progress = Math.round(parseFloat(data.replace(/^.+\=/, ''))*10000) / 100
 
-                            Vue.set(this, 'percentage', progress)
+							Vue.set(this, 'percentage', progress)
 
-                            if (progress > 1) {
-                                if (barEnabled) {
-                                    disableBar()
-                                    barEnabled = false
-                                }
+							if (progress > 1) {
+								if (barEnabled) {
+									disableBar()
+									barEnabled = false
+								}
 
-                                setBarProgress( progress )
-                            }
+								setBarProgress( progress )
+							}
 
 							break
 
@@ -130,12 +139,12 @@
 							break
 
 						case data.includes('running'):
-                            disableBar()
+							disableBar()
 							break
 					}
 				})
 
-				launchkit.stderr.on('data', data => console.log(data.toString('utf8')))
+				// launchkit.stderr.on('data', data => console.log(data.toString('utf8')))
 				
 				launchkit.stdout.pipe(process.stdout)
 
@@ -302,9 +311,18 @@
 				background-color: darkgray
 				color: white
 
+				& > svg
+					margin-top: 0.15rem
+
+				svg path
+					fill: white !important
+
 			.kill > .slide
 				background-color: var(--red)
 				color: white
+				
+				svg path
+					fill: white !important
 
 		.bottom
 			border-top: 1px solid rgba(white, 0.1)
