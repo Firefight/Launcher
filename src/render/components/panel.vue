@@ -93,7 +93,7 @@
 					'-jar', 
 					path.join(
 						require('electron').remote.app.getAppPath().replace('app.asar','').replace('resources', 'unpacked'), 
-						'LaunchKit-1.6.jar'
+						'LaunchKit-1.7.jar'
 					)
 				])
 

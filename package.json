@@ -1,6 +1,6 @@
 {
 	"name": "firfight-launcher",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"main": "unpacked/index.js",
 	"homepage": "https://github.com/AeternumIndustries/firefight-releases",
 	"repository": {
@@ -82,7 +82,7 @@
 			"category": "Game"
 		},
 		"extraFiles": [
-			"unpacked/LaunchKit-1.6.jar"
+			"unpacked/LaunchKit-1.7.jar"
 		]
 	}
 }
