@@ -18,6 +18,7 @@
 		"build:main": "parcel build -d unpacked src/main/index.js --target node",
 		"build:render": "parcel build -d unpacked src/render/index.pug --target electron --public-url ./ --no-content-hash=true",
 		"dist": "yarn build && node prebuild.js && electron-builder --win && node postbuild.js",
+		"dist:mac": "yarn build && node prebuild.js && electron-builder --mac && node postbuild.js",
 		"pack": "yarn build && node prebuild.js && electron-builder --dir && node postbuild.js",
 		"publish": "yarn build && node prebuild.js && electron-builder --win --publish always && node postbuild.js",
 		"dev": "yarn build:main && yarn watch",
