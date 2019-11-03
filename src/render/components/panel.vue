@@ -12,7 +12,7 @@
 			span
 
 		div(class="top")
-			h4 {{ percentage > 0 && percentage < 100 ? `${percentage}%` : 'Alpha' }}
+			h4 Alpha {{ percentage > 0 ?  `| ${percentage}%` : '' }}
 				
 			button( 
 				v-if="!play_disabled" 
@@ -93,11 +93,12 @@
 					'-jar', 
 					path.join(
 						require('electron').remote.app.getAppPath().replace('app.asar','').replace('resources', 'unpacked'), 
-						'LaunchKit-1.5.jar'
+						'LaunchKit-1.6.jar'
 					)
 				])
 
-				let barEnabled = true
+                let barEnabled = true
+                let validated = false
 
 				launchkit.stdin.setEncoding('utf8')
 
@@ -108,20 +109,22 @@
 					
 					if (data.includes("@ppm:")) switch ( true ) {
 						case data.includes('ready'):
-							const { accessToken, selectedProfile, user } = this.$store.state.auth
 							launchkit.stdin.write(`/lk set pack https://raw.githubusercontent.com/Firefight/Launcher/pack/main.json\n`)
-							launchkit.stdin.write(`/mc auth ${user.username} mojang ${selectedProfile.id} ${accessToken}\n`)
+							launchkit.stdin.write(`/mc validate\n`)
+							break
+
+						case data.includes('validated'):
+                            if (validated) break
+                            validated = true
+							const { accessToken, selectedProfile, user } = this.$store.state.auth
+							launchkit.stdin.write(`/mc auth ${selectedProfile.name} mojang ${selectedProfile.id} ${accessToken}\n`)
 							launchkit.stdin.write("/mc start\n")
 							break
-							
-						// case data.includes('validated'):
-						// 	launchkit.stdin.write("/mc start\n")
-						//     break
 
 						case data.includes('progress'):
 							const progress = Math.round(parseFloat(data.replace(/^.+\=/, ''))*10000) / 100
 
-							Vue.set(this, 'percentage', progress)
+                            if (progress) Vue.set(this, 'percentage', progress)
 
 							if (progress > 1) {
 								if (barEnabled) {
@@ -135,11 +138,13 @@
 							break
 
 						case data.includes('stopped'):
+                            if (!this.play_disabled) break
 							this.kill()
 							break
 
 						case data.includes('running'):
-							disableBar()
+                            disableBar()
+                            Vue.set(this, 'percentage', 0)
 							break
 					}
 				})
