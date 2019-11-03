@@ -27,12 +27,18 @@
             "location": "/",
             "name": "servers",
             "type": "dat"
+        },
+        {
+            "download": "https://optifine.net/adloadx?f=OptiFine_1.12.2_HD_U_E3.jar",
+            "hint": "optifine",
+            "location": "mods",
+            "type": "jar"
         }
     ],
     "identity": {
         "name": "Firefight",
         "description": "Firefig.ht's LaunchKit pack",
-        "version": "3"
+        "version": "4"
     },
     "profiles": [
         {
