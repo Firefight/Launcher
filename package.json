@@ -38,7 +38,7 @@
 		"@vue/component-compiler-utils": "^3.0.0",
 		"cross-env": "^6.0.3",
 		"electron": "^7.0.0",
-		"electron-builder": "^20.44.4",
+		"electron-builder": "^22.1.0",
 		"electron-rebuild": "^1.8.6",
 		"parcel": "^1.12.3",
 		"parcel-plugin-static-files-copy": "^2.1.1",
@@ -55,20 +55,20 @@
 	},
 	"build": {
 		"appId": "com.aeternum.firefight-launcher",
-        "dmg": {
-          "contents": [
-            {
-              "x": 110,
-              "y": 150
-            },
-            {
-              "x": 240,
-              "y": 150,
-              "type": "link",
-              "path": "/Applications"
-            }
-          ]
-        },
+		"dmg": {
+			"contents": [
+				{
+					"x": 110,
+					"y": 150
+				},
+				{
+					"x": 240,
+					"y": 150,
+					"type": "link",
+					"path": "/Applications"
+				}
+			]
+		},
 		"mac": {
 			"category": "public.app-category.games"
 		},
